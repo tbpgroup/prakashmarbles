@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Shop">
+        <menu>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_subcat"
+            android:icon="@drawable/tiles"
+            android:title="@string/menu_tiles" />
+        <item
+            android:id="@+id/nav_marbles"
+            android:icon="@drawable/marbles"
+            android:title="@string/menu_Marbles" />
+        <item
+            android:id="@+id/nav_granites"
+            android:icon="@drawable/granite"
+            android:title="@string/menu_Grani" />
+        <item
+            android:id="@+id/nav_sanit"
+            android:icon="@drawable/sanitarywear"
+            android:title="@string/menu_sani" />
+        <item
+            android:id="@+id/nav_cp"
+            android:icon="@drawable/cp_fittings"
+            android:title="@string/menu_cp" />
+
+    </group>
+        </menu>
+    </item>
+    <item android:title="Menu">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_home"
+                    android:title="@string/menu_home" />
+                <item
+                    android:id="@+id/nav_cart"
+                    android:title="@string/menu_Cart" />
+                <item
+                    android:id="@+id/nav_order"
+
+                    android:title="@string/menu_order" />
+                <item
+                    android:id="@+id/locate"
+
+                    android:title="@string/menu_Locat" />
+
+            </group>
+        </menu>
+    </item>
+</menu>
