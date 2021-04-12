@@ -1,6 +1,5 @@
 package com.crTech.prakashmarble.ui.Activity.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,21 +8,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.crTech.prakashmarble.R;
+import com.crTech.prakashmarble.ui.Activity.ui.User.DashBoard;
+import com.crTech.prakashmarble.ui.Common.Constants;
 import com.crTech.prakashmarble.ui.Common.Preferences;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -37,6 +34,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     SliderLayout mDemoSlider ;
     Preferences pref;
+    CardView cdtiles,cdmarbles,cdgranite,cdsanitary,cdcp;
     //Snackbar snackbar;
     private SweetAlertDialog loader;
     LinearLayout lv_layout,lv_button;
@@ -44,10 +42,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     String token;
     String[] img = new String[20];
     RecyclerView rv_category,rv_offers,rv_trending;
-//    ArrayList<HashMap<String,String>> offers_list = new ArrayList<HashMap<String, String>>();
-//    ArrayList<HashMap<String,String>> trending_list = new ArrayList<HashMap<String, String>>();
-//    ArrayList<HashMap<String,String>> category_list = new ArrayList<HashMap<String, String>>();
-//    ArrayList<String> search_items = new ArrayList<>();
     String lat,lng;
     //GetLocation location;
     View v;
@@ -68,13 +62,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         //location = new GetLocation(getContext());
         mDemoSlider = (SliderLayout)v.findViewById(R.id.slider);
         lv_layout = (LinearLayout)v.findViewById(R.id.linear);
-       // rv_offers = (RecyclerView) v.findViewById(R.id.offers_rv);
-        //rv_trending = (RecyclerView) v.findViewById(R.id.trending_rv);
-//        rv_category = (RecyclerView)v.findViewById(R.id.category_recycler);
-        //tv_more_offers = (TextView)v.findViewById(R.id.offers_all);
+      cdtiles = (CardView)v.findViewById(R.id.cd_tiles);
+      cdmarbles = (CardView)v.findViewById(R.id.cd_marbles);
+      cdgranite = (CardView)v.findViewById(R.id.cd_granite);
+      cdsanitary = (CardView)v.findViewById(R.id.cd_sanitary);
+      cdcp = (CardView)v.findViewById(R.id.cd_cp);
     }
 
     private void setListner() {
+        cdtiles.setOnClickListener(this);
+        cdgranite.setOnClickListener(this);
+        cdmarbles.setOnClickListener(this);
+        cdsanitary.setOnClickListener(this);
+        cdcp.setOnClickListener(this);
     }
 
     //=================== Slider IMages ======================================//
@@ -107,6 +107,33 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.cd_tiles:
+                pref.set(Constants.cat_id,"1");
+                pref.commit();
+                ((DashBoard)getActivity()).displayView(1);
+                break;
+            case R.id.cd_granite:
+                pref.set(Constants.cat_id,"2");
+                pref.commit();
+                ((DashBoard)getContext()).displayView(2);
+                break;
+            case R.id.cd_marbles:
+                pref.set(Constants.cat_id,"3");
+                pref.commit();
+                ((DashBoard)getContext()).displayView(3);
+                break;
+            case R.id.cd_sanitary:
+                pref.set(Constants.cat_id,"4");
+                pref.commit();
+                ((DashBoard)getContext()).displayView(4);
+                break;
+            case R.id.cd_cp:
+                pref.set(Constants.cat_id,"5");
+                pref.commit();
+                ((DashBoard)getContext()).displayView(5);
+                break;
+        }
 
     }
 }

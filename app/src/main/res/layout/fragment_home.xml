@@ -49,6 +49,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cd_tiles"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         app:cardCornerRadius="5.0dp"
@@ -91,6 +92,7 @@
 
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cd_marbles"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         app:cardCornerRadius="5.0dp"
@@ -134,6 +136,7 @@
 
                     </androidx.cardview.widget.CardView>
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cd_granite"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             app:cardCornerRadius="5.0dp"
@@ -177,6 +180,7 @@
 
                         </androidx.cardview.widget.CardView>
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cd_sanitary"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             app:cardCornerRadius="5.0dp"
@@ -222,6 +226,7 @@
 
                         </androidx.cardview.widget.CardView>
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cd_cp"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             app:cardCornerRadius="5.0dp"
@@ -460,34 +465,34 @@
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="90dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 >
                 <ImageView
-                    android:layout_width="200dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:src="@drawable/client1"/>
                 <ImageView
-                    android:layout_width="200dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:src="@drawable/client2"/>
                 <ImageView
-                    android:layout_width="200dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:src="@drawable/client3"/>
                 <ImageView
-                    android:layout_width="200dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:src="@drawable/client4"/>
                 <ImageView
-                    android:layout_width="200dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:src="@drawable/client5"/>
                 <ImageView
-                    android:layout_width="200dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:src="@drawable/client6"/>
             </LinearLayout>

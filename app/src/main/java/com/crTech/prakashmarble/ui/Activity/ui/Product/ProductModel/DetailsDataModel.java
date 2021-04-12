@@ -35,6 +35,14 @@ public class DetailsDataModel {
     private String gallery6;
     @SerializedName("offers")
     private String offers;
+    @SerializedName("price")
+    private String price;
+    @SerializedName("min_price")
+    private String min_price;
+    @SerializedName("mrp")
+    private String mrp;
+    @SerializedName("discount")
+    private String discount;
 
     public String getProdID() {
         return prodID;
@@ -98,5 +106,21 @@ public class DetailsDataModel {
 
     public String getOffers() {
         return offers;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public String getMin_price() {
+        return min_price;
+    }
+
+    public String getMrp() {
+        return mrp;
+    }
+
+    public String getDiscount() {
+        return discount;
     }
 }

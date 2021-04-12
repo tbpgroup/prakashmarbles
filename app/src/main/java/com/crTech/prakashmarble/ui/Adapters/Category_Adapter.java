@@ -11,16 +11,19 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.crTech.prakashmarble.R;
+import com.crTech.prakashmarble.ui.Activity.ui.User.DashBoard;
+import com.crTech.prakashmarble.ui.Activity.ui.Category.CategoryModel.CategoryDataModel;
+import com.crTech.prakashmarble.ui.Common.Constants;
+import com.crTech.prakashmarble.ui.Common.Preferences;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Category_Adapter extends RecyclerView.Adapter<Category_Adapter.MyViewHolder> {
 
     Context context;
-    ArrayList<HashMap<String, String>> alist;
-    private final int limit = 4;
+    ArrayList<CategoryDataModel> alist;
     private int gallery_image_id;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -39,7 +42,7 @@ public class Category_Adapter extends RecyclerView.Adapter<Category_Adapter.MyVi
         }
     }
 
-    public Category_Adapter(Context context, ArrayList<HashMap<String, String>> alist) {
+    public Category_Adapter(Context context, ArrayList<CategoryDataModel> alist) {
         this.context = context;
         this.alist = alist;
     }
@@ -54,21 +57,24 @@ public class Category_Adapter extends RecyclerView.Adapter<Category_Adapter.MyVi
     @Override
     public void onBindViewHolder(Category_Adapter.MyViewHolder myViewHolder, final int i) {
 
-        myViewHolder.tv_name.setText(alist.get(i).get("VenueName"));
+        myViewHolder.tv_name.setText(alist.get(i).getProduct_type_name());
+        Glide.with(context).load(R.drawable.no_image).placeholder(R.drawable.no_image).into(myViewHolder.iv_image);
+
         myViewHolder.lv_block.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Preferences preferences  = new Preferences(context);
+                preferences.set(Constants.sub_cat_id,alist.get(i).getProductTypeID());
+                preferences.commit();
+                ((DashBoard)context).displayView(6);
             }
         });
     }
     @Override
     public int getItemCount() {
 
-        if (alist.size() > limit) {
-            return limit;
-        } else {
+
             return alist.size();
-        }
+
     }
 }

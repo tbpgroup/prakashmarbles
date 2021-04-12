@@ -28,4 +28,21 @@
     <string name="menu_Locat">Locate Us</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="filter_items">
+        <item>All </item>
+        <item>300X300</item>
+        <item>300X450</item>
+        <item>300X900</item>
+        <item>250X375</item>
+        <item>300X600</item>
+        <item>200X600</item>
+        <item>250X750</item>
+
+    </string-array>
+    <string-array name="filter_brands">
+        <item>All </item>
+        <item>AGL</item>
+        <item>RAK</item>
+    </string-array>
 </resources>

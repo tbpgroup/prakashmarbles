@@ -16,10 +16,13 @@
         android:theme="@style/Theme.PrakashMarble"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
+        <activity android:name=".ui.Activity.ui.User.ForgotPassActivity"></activity>
+        <activity android:name=".ui.Activity.ui.User.RegisterActivity" />
+        <activity android:name=".ui.Activity.ui.User.LoginActivity" />
         <activity
-            android:name=".ui.Activity.DashBoard"
+            android:name=".ui.Activity.ui.User.DashBoard"
             android:label="@string/title_activity_dash_board"
-            android:theme="@style/Theme.PrakashMarble.NoActionBar"></activity>
+            android:theme="@style/Theme.PrakashMarble.NoActionBar" />
         <activity
             android:name=".ui.Activity.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

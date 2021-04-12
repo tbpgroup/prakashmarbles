@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.crTech.prakashmarble.R;
+import com.crTech.prakashmarble.ui.Activity.ui.User.DashBoard;
 
 public class SplashActivity extends AppCompatActivity {
     private static String[] PERMISSIONS = {Manifest.permission.INTERNET,Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION
@@ -42,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(getApplicationContext(),DashBoard.class);
+                        Intent intent = new Intent(getApplicationContext(), DashBoard.class);
                         startActivity(intent);
                     }
 

@@ -11,6 +11,8 @@ public class DetailsResponse {
     private int error_code;
     @SerializedName("data")
     private ArrayList<DetailsDataModel> data;
+    @SerializedName("related_products")
+    private ArrayList<DetailsDataModel> related_products;
 
     public boolean isError() {
         return error;
@@ -22,5 +24,9 @@ public class DetailsResponse {
 
     public ArrayList<DetailsDataModel> getData() {
         return data;
+    }
+
+    public ArrayList<DetailsDataModel> getRelated_products() {
+        return related_products;
     }
 }

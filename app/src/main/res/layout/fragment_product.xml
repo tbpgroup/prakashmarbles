@@ -8,11 +8,71 @@
     android:background="@color/back_screen"
     >
 
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:cardElevation="5.0dp">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="50.0dp"
+       android:orientation="horizontal">
 
+      <ImageView
+
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/ic_baseline_filter_alt_24"
+          android:layout_gravity="center"
+          android:layout_marginLeft="10dp"
+          />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="50.0dp"
+          android:orientation="horizontal"
+          android:layout_weight="1">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="By Size: "
+          android:layout_gravity="center"
+          android:layout_marginLeft="10dp"/>
+      <Spinner
+          android:id="@+id/sp_list"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"/>
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="50.0dp"
+          android:orientation="horizontal"
+          android:layout_weight="1">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="By Brand: "
+          android:layout_marginLeft="10dp"
+          android:layout_gravity="center"/>
+      <Spinner
+          android:id="@+id/sp_brand"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"/>
+      </LinearLayout>
+
+   </LinearLayout>
+   </androidx.cardview.widget.CardView>
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/rv_prod"
        android:layout_width="match_parent"
        android:layout_margin="10dp"
        android:layout_height="match_parent"/>
+   <ImageView
+       android:id="@+id/nodata"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_margin="10dp"
+       android:visibility="gone"
+       android:src="@drawable/coming_soon"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

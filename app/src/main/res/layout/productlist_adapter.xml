@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="5.0dp"
+    android:id="@+id/cdblock"
+    android:layout_weight="1"
+    android:layout_margin="5dp"
+    android:elevation="5.0dp"
+    >
+
+    <RelativeLayout
+        android:id="@+id/block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:id="@+id/venue_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/tiles"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:visibility="visible"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="2.0dp"
+            app:cardBackgroundColor="@color/app_theme">
+            <TextView
+                android:id="@+id/tv_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:text="300X300" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/venue_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ganjam"
+            android:layout_margin="10dp"
+            android:ellipsize="marquee"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:layout_below="@+id/venue_image"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:singleLine="true" />
+        <TextView
+            android:id="@+id/product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ganjam"
+            android:layout_margin="5dp"
+            android:ellipsize="marquee"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FF5722"
+            android:layout_below="@+id/venue_id"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:singleLine="true" />
+        <TextView
+            android:id="@+id/mrptext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ganjam"
+            android:ellipsize="marquee"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/product"
+            android:layout_gravity="center"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ganjam"
+            android:layout_marginBottom="3.0dp"
+            android:ellipsize="marquee"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/mrptext"
+            android:layout_gravity="center"
+            android:singleLine="true" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

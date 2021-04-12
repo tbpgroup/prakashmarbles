@@ -13,6 +13,14 @@ public class ProductDataModel {
     private String category_name;
     @SerializedName("image")
     private String image;
+    @SerializedName("price")
+    private String price;
+    @SerializedName("min_price")
+    private String min_price;
+    @SerializedName("mrp")
+    private String mrp;
+    @SerializedName("discount")
+    private String discount;
 
     public String getProdID() {
         return prodID;
@@ -32,5 +40,21 @@ public class ProductDataModel {
 
     public String getImage() {
         return image;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public String getMin_price() {
+        return min_price;
+    }
+
+    public String getMrp() {
+        return mrp;
+    }
+
+    public String getDiscount() {
+        return discount;
     }
 }

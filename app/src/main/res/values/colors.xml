@@ -10,4 +10,5 @@
     <color name="back_screen">#ebecf1</color>
     <color name="app_theme">#398a8e</color>
     <color name="headder_color">#fa7e2f</color>
+    <color name="black_trans">#77000000</color>
 </resources>

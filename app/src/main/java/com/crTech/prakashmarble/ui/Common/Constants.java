@@ -11,5 +11,9 @@ public class Constants {
   public static final String user_mail = "user_mail";
   public static final String enrollment_id = "enrollment_id";
   public static final String member_name = "member_name";
-
+  public static final String cat_id = "cat_id";
+  public static final String sub_cat_id = "sub_cat_id";
+  public static final String prod_id = "prod_id";
+  public static final String islogin  = "islogin";
+  public static final String userID = "userID";
 }

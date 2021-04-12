@@ -14,5 +14,13 @@
        android:layout_height="match_parent"
        android:layout_margin="10dp"/>
 
+   <ImageView
+       android:id="@+id/nodata"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_margin="10dp"
+       android:visibility="gone"
+       android:src="@drawable/coming_soon"/>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
