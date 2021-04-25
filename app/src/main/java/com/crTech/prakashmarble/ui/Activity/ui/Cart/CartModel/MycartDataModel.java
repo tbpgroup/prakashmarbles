@@ -9,6 +9,12 @@ public class MycartDataModel {
     private String prodID;
     @SerializedName("prod_name")
     private String prod_name;
+    @SerializedName("image")
+    private String image;
+    @SerializedName("price")
+    private String price;
+    @SerializedName("min_price")
+    private String min_price;
     @SerializedName("mrp")
     private String mrp;
     @SerializedName("quantity")
@@ -28,6 +34,18 @@ public class MycartDataModel {
 
     public String getProd_name() {
         return prod_name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public String getMin_price() {
+        return min_price;
     }
 
     public String getMrp() {

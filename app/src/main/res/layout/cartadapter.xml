@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_margin="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_prod"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/no_image"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/prd_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Prod name"
+                android:textSize="16sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/prd_dim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="300X300"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/prd_mrp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 X 0/-"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginRight="15dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                android:id="@+id/qty"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:backGroundColor="@color/white"
+                app:textColor="@color/black"
+                app:initialNumber="1"
+                app:finalNumber="50"
+                android:layout_weight="1"
+                />
+                <ImageView
+                    android:id="@+id/prd_delet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_delete_forever_24"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"/>
+                <TextView
+                    android:id="@+id/tv_resultprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0/-"
+                    android:textSize="15sp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="@color/app_theme"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName;
 public class MycartInputModel {
 
     @SerializedName("userID")
-    private String userID;
+    private int userID;
 
-    public void setUserID(String userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 }

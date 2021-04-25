@@ -8,11 +8,11 @@
     android:background="@color/back_screen"
     >
 
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/rvcate"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:layout_margin="10dp"/>
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/rvcate"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_margin="10dp"/>
 
    <ImageView
        android:id="@+id/nodata"

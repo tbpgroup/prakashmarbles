@@ -1,5 +1,4 @@
-package com.crTech.prakashmarble.ui.Activity.ui.Cart;
-
+package com.crTech.prakashmarble.ui.Activity.ui.User;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,9 +15,10 @@ import com.crTech.prakashmarble.R;
 import com.crTech.prakashmarble.ui.Activity.ui.Cart.CartModel.MycartDataModel;
 import com.crTech.prakashmarble.ui.Activity.ui.Cart.CartModel.MycartInputModel;
 import com.crTech.prakashmarble.ui.Activity.ui.Cart.CartModel.MycartResponseModel;
-import com.crTech.prakashmarble.ui.Activity.ui.Category.CategoryModel.CategoryDataModel;
+import com.crTech.prakashmarble.ui.Activity.ui.User.UserModel.BookingHistoryModel;
+import com.crTech.prakashmarble.ui.Activity.ui.User.UserModel.BookingHistoryResponseModel;
 import com.crTech.prakashmarble.ui.Adapters.CartProduct_Adapter;
-import com.crTech.prakashmarble.ui.Adapters.Category_Adapter;
+import com.crTech.prakashmarble.ui.Adapters.HistoryAdapter;
 import com.crTech.prakashmarble.ui.Common.Constants;
 import com.crTech.prakashmarble.ui.Common.Preferences;
 import com.crTech.prakashmarble.ui.Common.Retrofit.ApiClient;
@@ -31,12 +31,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CartFragment extends Fragment {
+public class BookingHistoryFragment extends Fragment {
 
     RecyclerView recyclerView;
     private SweetAlertDialog loader;
-    ArrayList<MycartDataModel> mycartDataModels = new ArrayList<MycartDataModel>();
-    CartProduct_Adapter adapter;
+    ArrayList<BookingHistoryModel> mycartDataModels = new ArrayList<BookingHistoryModel>();
+    HistoryAdapter adapter;
     Preferences pref;
     String userID;
     ImageView iv_nodata;
@@ -44,7 +44,7 @@ public class CartFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_cart, container, false);
+        v = inflater.inflate(R.layout.frag_bookinghistory, container, false);
         getid();
         setListner();
         getcartdata();
@@ -53,7 +53,7 @@ public class CartFragment extends Fragment {
 
     private void getid() {
         pref = new Preferences(getContext());
-        recyclerView = (RecyclerView)v.findViewById(R.id.rv_cart);
+        recyclerView = (RecyclerView)v.findViewById(R.id.rv_book);
         pref.set(Constants.fragment_position,"1");
         pref.commit();
     }
@@ -65,16 +65,16 @@ public class CartFragment extends Fragment {
         userID = pref.get(Constants.userID);
         MycartInputModel mycartInputModel = new MycartInputModel();
         mycartInputModel.setUserID(Integer.parseInt(userID));
-        Call<MycartResponseModel> mycartResponseModelCall = ApiClient.getClient().create(ApiInterface.class).getcart(mycartInputModel);
-        mycartResponseModelCall.enqueue(new Callback<MycartResponseModel>() {
+        Call<BookingHistoryResponseModel> mycartResponseModelCall = ApiClient.getClient().create(ApiInterface.class).getbookinghistory(mycartInputModel);
+        mycartResponseModelCall.enqueue(new Callback<BookingHistoryResponseModel>() {
             @Override
-            public void onResponse(Call<MycartResponseModel> call, Response<MycartResponseModel> response) {
+            public void onResponse(Call<BookingHistoryResponseModel> call, Response<BookingHistoryResponseModel> response) {
                 if (response.isSuccessful()){
-                    MycartResponseModel mycartResponseModel = response.body();
+                    BookingHistoryResponseModel mycartResponseModel = response.body();
                     if (!mycartResponseModel.isError()){
                         mycartDataModels.addAll(mycartResponseModel.getData());
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-                        adapter = new CartProduct_Adapter(getContext(),mycartDataModels);
+                        adapter = new HistoryAdapter(getContext(),mycartDataModels);
                         recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(adapter);
                         recyclerView.setVisibility(View.VISIBLE);
@@ -87,9 +87,9 @@ public class CartFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<MycartResponseModel> call, Throwable t) {
+            public void onFailure(Call<BookingHistoryResponseModel> call, Throwable t) {
                 //loader.cancel();
-               // tv_count.setText("0");
+                // tv_count.setText("0");
             }
         });
     }

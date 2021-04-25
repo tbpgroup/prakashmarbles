@@ -15,8 +15,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.crTech.prakashmarble.R;
 import com.crTech.prakashmarble.ui.Activity.ui.User.DashBoard;
 import com.crTech.prakashmarble.ui.Activity.ui.Product.ProductModel.DeatilsInputModel;
@@ -50,13 +52,16 @@ public class ProductDetailFragment extends Fragment implements View.OnClickListe
     ArrayList<DetailsDataModel> relatedinfolist = new ArrayList<DetailsDataModel>();
     SliderLayout mDemoSlider ;
     String[] img = new String[20];
-    TextView tv_prodname,tv_stock,tv_price,tv_mrp,tv_save,tv_details;
+    TextView tv_prodname,tv_stock,tv_price,tv_mrp,tv_save,tv_details,tv_totalprice;
     ImageView iv_brand;
     boolean isavialable = true;
     Related_Adapter adapter;
     RecyclerView rv_related;
     Button btn;
+    String num = "1",totalprice = "₹ 0/-";
+    int price = 0;
     View v;
+    ElegantNumberButton btn_qty;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -64,6 +69,16 @@ public class ProductDetailFragment extends Fragment implements View.OnClickListe
         getid();
         setListner();
         getproducts();
+
+        btn_qty.setOnClickListener(new ElegantNumberButton.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 num = btn_qty.getNumber();
+                 int res = Integer.parseInt(num) * Integer.parseInt(detailsDataModel.getPrice());
+                 totalprice = String.valueOf(res);
+                 tv_totalprice.setText("₹ "+totalprice);
+            }
+        });
         return v;
     }
 
@@ -78,7 +93,9 @@ public class ProductDetailFragment extends Fragment implements View.OnClickListe
         rv_related = (RecyclerView)v.findViewById(R.id.rv_similar);
         tv_details = (TextView)v.findViewById(R.id.prod_descriptio);
         rv_related = (RecyclerView)v.findViewById(R.id.rv_similar);
+        tv_totalprice = (TextView)v.findViewById(R.id.tv_resultprice);
         btn = (Button)v.findViewById(R.id.addcart);
+        btn_qty = (ElegantNumberButton)v.findViewById(R.id.elegantNumberButton_quantity);
         pref = new Preferences(getContext());
         pref.set(Constants.fragment_position,"4");
         pref.commit();
@@ -170,6 +187,7 @@ public class ProductDetailFragment extends Fragment implements View.OnClickListe
         tv_mrp.setText("₹ "+detailsDataModel.getMrp()+"/-");
         tv_mrp.setPaintFlags(tv_mrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         tv_price.setText("₹ "+detailsDataModel.getPrice()+"");
+        tv_totalprice.setText("₹ "+detailsDataModel.getPrice()+"");
         double save = Integer.parseInt(detailsDataModel.getMrp()) - Integer.parseInt(detailsDataModel.getPrice());
         String data = String.valueOf(save);
         tv_save.setText("Save "+data+" ₹");
@@ -204,7 +222,7 @@ public class ProductDetailFragment extends Fragment implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.addcart:
-                ((DashBoard)getContext()).getcartinfo(detailsDataModel,1);
+                ((DashBoard)getContext()).getcartinfo(detailsDataModel,btn_qty.getNumber());
                 break;
         }
     }

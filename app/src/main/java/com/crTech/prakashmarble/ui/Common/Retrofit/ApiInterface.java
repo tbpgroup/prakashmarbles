@@ -10,6 +10,7 @@ import com.crTech.prakashmarble.ui.Activity.ui.Product.ProductModel.DeatilsInput
 import com.crTech.prakashmarble.ui.Activity.ui.Product.ProductModel.DetailsResponse;
 import com.crTech.prakashmarble.ui.Activity.ui.Product.ProductModel.ProductInputModel;
 import com.crTech.prakashmarble.ui.Activity.ui.Product.ProductModel.ProductResponse;
+import com.crTech.prakashmarble.ui.Activity.ui.User.UserModel.BookingHistoryResponseModel;
 import com.crTech.prakashmarble.ui.Activity.ui.User.UserModel.ChangePasswordInputModel;
 import com.crTech.prakashmarble.ui.Activity.ui.User.UserModel.ChangePasswordResponseModel;
 import com.crTech.prakashmarble.ui.Activity.ui.User.UserModel.ForgotPasswordInputModel;
@@ -17,6 +18,7 @@ import com.crTech.prakashmarble.ui.Activity.ui.User.UserModel.ForgotPasswordResp
 import com.crTech.prakashmarble.ui.Activity.ui.User.UserModel.LoginInputModel;
 import com.crTech.prakashmarble.ui.Activity.ui.User.UserModel.LoginResponseModel;
 import com.crTech.prakashmarble.ui.Activity.ui.User.UserModel.RegisterInputModel;
+import com.crTech.prakashmarble.ui.Activity.ui.home.ShopsModel.ShopResponseModel;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -58,9 +60,16 @@ public interface ApiInterface {
     Call<CartResponseModel> additem(@Body CartInputModel cartInputModel);
     /*Get Cart Data*/
     @Headers({"Accept: application/json"})
-    @POST("addToCart")
+    @POST("getUserCart")
     Call<MycartResponseModel> getcart(@Body MycartInputModel mycartInputModel);
-
+    /*Get Shop list*/
+    @Headers({"Accept: application/json"})
+    @POST("getStoresList")
+    Call<ShopResponseModel> getshopslist();
+    /*Get booking history*/
+    @Headers({"Accept: application/json"})
+    @POST("getUserOrder")
+    Call<BookingHistoryResponseModel> getbookinghistory(@Body MycartInputModel mycartInputModel);
 }
 
 

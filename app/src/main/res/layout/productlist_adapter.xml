@@ -92,7 +92,5 @@
             android:layout_below="@+id/mrptext"
             android:layout_gravity="center"
             android:singleLine="true" />
-
-
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

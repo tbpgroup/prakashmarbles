@@ -11,4 +11,5 @@
     <color name="app_theme">#398a8e</color>
     <color name="headder_color">#fa7e2f</color>
     <color name="black_trans">#77000000</color>
+    <color name="green">#4CAF50</color>
 </resources>
